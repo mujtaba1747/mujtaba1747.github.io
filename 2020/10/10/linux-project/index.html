@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git-Autocommit : An interesting project using the inotify system call in Linux</title>
+    <meta name="description" content="Automate pushing your code on Git for any change made in it's files">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://mujtaba1747.github.io/2020/10/10/linux-project/">
+    <link rel="alternate" type="application/rss+xml" title="Syed Mujtaba" href="https://mujtaba1747.github.io/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Syed Mujtaba</a>
+        <small>Software Engineering Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Git-Autocommit : An interesting project using the inotify system call in Linux</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2020-10-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Linux" title="Category: Linux" rel="category">Linux</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a-->
+        <a href="/tag/#Linux" title="Tag: Linux" rel="tag">Linux</a>&nbsp;
+    
+        <!--a href="/tag/#Git" title="Tag: Git" rel="tag">Git</a-->
+        <a href="/tag/#Git" title="Tag: Git" rel="tag">Git</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        
+<p><img src="https://raw.githubusercontent.com/mujtaba1747/git-autocommit/master/Image.png" alt="" /></p>
+
+<p>Git Autocommit is a program that can recursively detect changes in a directory and trigger
+git commands to push those changes to a git repo.</p>
+
+<p>Also, it’s Completely Open Source : <a href="https://github.com/mujtaba1747/git-autocommit"> Git Repo </a> !</p>
+
+<p>It can be extended to doing anything apart from pushing to git repo as well.</p>
+
+<p>The idea behind it is pretty simple :
+“Linux will monitor for changes in a particular directory, when changes are detected, git commands are triggered to push them to the repository.”<br /></p>
+
+<p>It Employs inotifywait (a Linux System Call from the inotify family) to recursively watch a directory for changes. Triggers Commands to push changes when they are detected.
+This script can be easily modified for any VCS / Cloud provider which provides command-line interface.</p>
+
+<p>Linux provides a nice interface for monitoring all file system events like creating, modifying, removing files.
+The interface is inotify family of system calls, the userspace utilities leveraging these calls are provided by the inotify-tools package in Ubuntu (available on the universe repository).
+If you don’t have it already, install by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install inotify-tools
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">inotify-tools</code> provides <code class="language-plaintext highlighter-rouge">inotifywait</code> and <code class="language-plaintext highlighter-rouge">inotifywatch</code> binaries, we need the first one.</p>
+
+<p>It’s written in Bash :</p>
+
+<p><img src="https://i.paste.pics/7243e9e8722cf4a2fbe0f2f0a7bc7d10.png?trs=00095fda3c0adb605b54d5289daf4b8eaacc1da2f476b7b7c583d2ef0d62af9e" height="220px" /></p>
+
+<p><b> So, to summarize </b></p>
+
+<p>It’s feasible to build a simple service for Linux that’ll watch a directory for changes and push those changes to the cloud in real time.
+In our case we used a Linux System Call (inotifywait) and git to implement the same. Many IDE’s too use the same system call to detect changes in a project.
+Currently it’s just a shell program but we plan to make it a Daemon (Standalone Process) soon.</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一</strong> <a href="/2020/10/08/Trie/">A tutorial on the Trie Data Structure</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            Contact me: 
+            <a href="https://github.com/mujtaba1747" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:mujtaba1747@gmail.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>       
+            <a href="https://www.linkedin.com/in/syed-mujtaba" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>  
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.<br>
+                <p class="description">
+                     Seek Knowledge from the Cradle to the Grave 
+                </p>
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

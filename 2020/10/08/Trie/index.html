@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>A tutorial on the Trie Data Structure</title>
+    <meta name="description" content="Trie is a tree data strcuture often asked in coding interviews and coding contests and also has many real life applications !">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="https://mujtaba1747.github.io/2020/10/08/Trie/">
+    <link rel="alternate" type="application/rss+xml" title="Syed Mujtaba" href="https://mujtaba1747.github.io/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Syed Mujtaba</a>
+        <small>Software Engineering Blog</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>A tutorial on the Trie Data Structure</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2020-10-08
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Competitive" title="Category: Competitive" rel="category">Competitive</a>&nbsp;
+    
+        <a href="/category/#Programming" title="Category: Programming" rel="category">Programming</a>&nbsp;
+    
+        <a href="/category/#Algorithms" title="Category: Algorithms" rel="category">Algorithms</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Competitive" title="Tag: Competitive" rel="tag">Competitive</a-->
+        <a href="/tag/#Competitive" title="Tag: Competitive" rel="tag">Competitive</a>&nbsp;
+    
+        <!--a href="/tag/#Programming" title="Tag: Programming" rel="tag">Programming</a-->
+        <a href="/tag/#Programming" title="Tag: Programming" rel="tag">Programming</a>&nbsp;
+    
+        <!--a href="/tag/#Algorithms" title="Tag: Algorithms" rel="tag">Algorithms</a-->
+        <a href="/tag/#Algorithms" title="Tag: Algorithms" rel="tag">Algorithms</a>&nbsp;
+    
+        <!--a href="/tag/#Data" title="Tag: Data" rel="tag">Data</a-->
+        <a href="/tag/#Data" title="Tag: Data" rel="tag">Data</a>&nbsp;
+    
+        <!--a href="/tag/#Structures" title="Tag: Structures" rel="tag">Structures</a-->
+        <a href="/tag/#Structures" title="Tag: Structures" rel="tag">Structures</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        
+<ul>
+  <li>Trie is a tree data strcuture</li>
+  <li>They can store information about keys/numbers/strings in a memory efficient manner</li>
+  <li>Their structure consists of nodes, where each node stores a character/bit. We can insert new strings/numbers accordingly.</li>
+</ul>
+
+<p>Here is an example Trie of strings :</p>
+
+<p><img src="https://i.paste.pics/f9e508d6cb40e41f895e899e980435c5.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>It’s not the case that a Trie can only be used for strings, it can for example be used for Bits (0 and 1) as well. Some problems in competitive programming are solved by storing the 
+binary representation of numbers in a trie and then processing over them.</p>
+  </li>
+  <li>
+    <p>It can be implemented in 2 ways, using pointers or by using 2D Arrays.</p>
+  </li>
+  <li>
+    <p>For example, you can find my implementation here : <a href="https://github.com/mujtaba1747/Algorithms/blob/master/2D_Trie.cpp">Trie using 2D Array </a></p>
+  </li>
+</ul>
+
+<p>It looks something like this in C++ :
+<img src="https://i.paste.pics/772976abda1685d1c011e74ce1243929.png?trs=00095fda3c0adb605b54d5289daf4b8eaacc1da2f476b7b7c583d2ef0d62af9e" alt="" /></p>
+
+<p>Here are a few coding problems on Trie you can try out :</p>
+
+<p><a href="https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3" target="_blank"> Google Kickstart 2020 Round A (Easy) </a></p>
+
+<p><a href="http://codeforces.com/contest/706/problem/D" target="_blank"> Codeforces 706D </a></p>
+
+<p><a href="http://codeforces.com/problemset/problem/948/D" target="_blank"> Codeforces 948D </a></p>
+
+<p><a href="https://codeforces.com/contest/842/problem/D" target="_blank"> Codeforces 842D </a></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>上一</strong> <a href="/2020/10/10/linux-project/">Git-Autocommit : An interesting project using the inotify system call in Linux</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="contact">
+            Contact me: 
+            <a href="https://github.com/mujtaba1747" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:mujtaba1747@gmail.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>       
+            <a href="https://www.linkedin.com/in/syed-mujtaba" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>  
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.<br>
+                <p class="description">
+                     Seek Knowledge from the Cradle to the Grave 
+                </p>
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Syed Mujtaba</title>
+    <description></description>
+    <link>https://mujtaba1747.github.io/</link>
+    <atom:link href="https://mujtaba1747.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 17 Nov 2020 20:49:52 +0530</pubDate>
+    <lastBuildDate>Tue, 17 Nov 2020 20:49:52 +0530</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>Git-Autocommit : An interesting project using the inotify system call in Linux</title>
+        <description>Automate pushing your code on Git for any change made in it's files</description>
+        <pubDate>Sat, 10 Oct 2020 05:30:00 +0530</pubDate>
+        <link>https://mujtaba1747.github.io/2020/10/10/linux-project/</link>
+        <guid isPermaLink="true">https://mujtaba1747.github.io/2020/10/10/linux-project/</guid>
+        
+        <category>Linux</category>
+        
+        <category>Git</category>
+        
+        
+        <category>Linux</category>
+        
+      </item>
+    
+      <item>
+        <title>A tutorial on the Trie Data Structure</title>
+        <description>Trie is a tree data strcuture often asked in coding interviews and coding contests and also has many real life applications !</description>
+        <pubDate>Thu, 08 Oct 2020 05:30:00 +0530</pubDate>
+        <link>https://mujtaba1747.github.io/2020/10/08/Trie/</link>
+        <guid isPermaLink="true">https://mujtaba1747.github.io/2020/10/08/Trie/</guid>
+        
+        <category>Competitive</category>
+        
+        <category>Programming</category>
+        
+        <category>Algorithms</category>
+        
+        <category>Data</category>
+        
+        <category>Structures</category>
+        
+        
+        <category>Competitive</category>
+        
+        <category>Programming</category>
+        
+        <category>Algorithms</category>
+        
+      </item>
+    
+  </channel>
+</rss>
